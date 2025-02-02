@@ -34,6 +34,8 @@ const UserDetails = () => {
   const [error, setError] = useState(null);
   const [isEditingPassword, setIsEditingPassword] = useState(false);
 
+
+  //useCallback- avoid unnecessary rerenders. And runs when userId changes
   const fetchUserDetails = useCallback(async () => {
     setLoading(true);
     try {
@@ -240,7 +242,9 @@ const UserDetails = () => {
                     type="button"
                     onClickhandler={() =>
                       setIsEditingPassword(!isEditingPassword)
-                    }
+                    } 
+                    //isEditingPassword  -- based on whether pwd is being edited or not readOnly is set
+                    // conditional redering of save/canmcel button is done 
                     className="bg-customRed mb-0 w-fit px-4 py-2 rounded-md text-white"
                   >
                     Click To Edit Password

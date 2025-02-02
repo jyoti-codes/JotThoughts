@@ -13,5 +13,5 @@ export const auditLogsTruncateTexts = (text, length = 25) => {
 export const truncateText = (text) => {
   if (text.length < 300) return text;
 
-  return text.substring(0, 300) + ".....";
+  return text.substring(0, 300) + ".....";  // if length of contnt is too long just add dots at end ,to avoid overflowing the card size
 };

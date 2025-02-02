@@ -13,6 +13,7 @@ const CreateNote = () => {
   const [editorContent, setEditorContent] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // handle changes in react quill editor
   const handleChange = (content, delta, source, editor) => {
     setEditorContent(content);
   };
@@ -24,7 +25,7 @@ const CreateNote = () => {
     }
     try {
       setLoading(true);
-      const noteData = { content: editorContent };
+      const noteData = { content: editorContent }; // request body to post note & API method accepts String content
       await api.post("/notes", noteData);
       toast.success("Note create successful");
       navigate("/notes");

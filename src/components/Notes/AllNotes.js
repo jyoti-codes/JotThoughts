@@ -14,6 +14,8 @@ const AllNotes = () => {
   const fetchNotes = async () => {
     setLoading(true);
     try {
+
+      // playcode.io
       const response = await api.get("/notes");
 
       const parsedNotes = response.data.map((note) => ({
@@ -22,6 +24,7 @@ const AllNotes = () => {
       }));
       setNotes(parsedNotes);
     } catch (error) {
+      
       setError(error.response.data.message);
       console.error("Error fetching notes", error);
     } finally {

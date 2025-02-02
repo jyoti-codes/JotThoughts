@@ -8,10 +8,21 @@ import moment from "moment";
 
 const NoteItems = ({ parsedContent, id, createdAt }) => {
   const formattedDate = moment(createdAt).format("D MMMM YYYY");
+  if(!parsedContent && !createdAt){
+    return;
+    }
+
+    console.log(`parsedContent =${parsedContent}`);
+    console.log(`id =${id}`);
+    console.log(`createdAt =${createdAt}`);
+
+    // dangerouslySetInnerHTML : content has html format. Safely display as a string even if maliciuos content are rendered as string
+
   return (
     <div className="sm:px-5 px-2 py-5 shadow-md bg-noteColor shadow-white rounded-lg min-h-96 max-h-96 relative overflow-hidden ">
       <p
         className="text-black font-customWeight ql-editor"
+        
         dangerouslySetInnerHTML={{ __html: truncateText(parsedContent) }}
       ></p>
       <div className="flex justify-between items-center  absolute bottom-5 sm:px-5 px-2 left-0 w-full text-slate-700">

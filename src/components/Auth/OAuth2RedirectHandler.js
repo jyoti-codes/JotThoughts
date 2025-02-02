@@ -22,7 +22,7 @@ const OAuth2RedirectHandler = () => {
         localStorage.setItem('JWT_TOKEN', token);
 
         const user = {
-          username: decodedToken.sub,
+          username: decodedToken.sub,  // JWTUtils-- .subject(username)
           roles: decodedToken.roles.split(','),
         };
         console.log("User Object:", user);
